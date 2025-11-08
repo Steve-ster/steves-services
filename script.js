@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const email = form.email.value.trim();
     const message = form.message.value.trim();
 
-    const mailtoLink = `mailto:mclardysteven2910@gmail.com?subject=Quote Request from ${name}&body=${encodeURIComponent(message)}%0A%0AContact Email: ${email}`;
+    const mailtoLink = `mailto:stevensservices10@gmail.com?subject=Quote Request from ${name}&body=${encodeURIComponent(message)}%0A%0AContact Email: ${email}`;
     window.location.href = mailtoLink;
   });
 });
