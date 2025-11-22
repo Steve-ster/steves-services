@@ -10,6 +10,9 @@ header {
   color: white;
   padding: 1rem;
   text-align: center;
+  /* position: fixed;
+  width: 100%; 
+  z-index: 1000;  */
 }
 
 nav ul {
