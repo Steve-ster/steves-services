@@ -5,7 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Steven's Services</title>
-  <link rel="stylesheet" href="style.css" />
+  <!-- Link the css -->
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -14,89 +15,197 @@
     <h1>Steven's Services</h1>
     <nav>
       <ul>
-        <li><a href="#home" class="nav-link">Home</a></li>
-        <li><a href="#services" class="nav-link">Services</a></li>
-        <!-- <li><a href="#gallery" class="nav-link">Gallery</a></li> -->
-         <li><a href="#hours" class="nav-link">Hours</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
-        
+        <li><a href="#home" class="nav-link" data-page="home">Home</a></li>
+        <li><a href="#services" class="nav-link" data-page="services">Services</a></li>
+        <li><a href="#hours" class="nav-link" data-page="hours">Hours</a></li>
+        <li><a href="#contact" class="nav-link" data-page="contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <section id="home" class="section">
+    <!-- Home Page -->
+    <div id="home" class="page active">
       <h1>Welcome to Steven's Services!</h1>
-      <p>Professional Services business right around the corner! Literally! Quality, care, and attention to detail.</p>
-    </section>
+      <p>Professional Services. Quality, care, and attention to detail.</p>
 
-    <hr>
+      <br>
 
-    <section id="services" class="section">
+      <div class="service-gallery">
+      <h2>Gallery</h2>
+        <div class="gallery-row">
+          <div>
+            <!-- <h4>Before</h4> -->
+            <img class="image" src="images/cherry_tigo.jpeg" style="width: 500px;"></img>
+          </div>
+          <!-- <div>
+            <h4>After</h4>
+            <img class="image" src="images/floor_dirt_after.jpeg"></img>
+          </div> -->
+        </div>
+
+        <div class="gallery-row">
+          <div>
+            <h4>Before</h4>
+            <img class="image" src="images/floor_dirt_before.jpeg"></img>
+          </div>
+          <div>
+            <h4>After</h4>
+            <img class="image" src="images/floor_dirt_after.jpeg"></img>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    
+
+    <!-- Services Page -->
+    <div id="services" class="page">
       <h1>Our Services</h1>
+      <p style="color: #666; font-style: italic; margin-top: -10px;">Click on each service to view pricing details</p>
       <br>
 
       <div class="service">
-        <h3>Car Wash Packages</h3>
-        <p>1. Outside Wash - R100 </p>
-        <p>2. Inside Vacuum + Polish - R80 </p>
-        <p>3. Packaged deal - R150</p>
-        <p> (Outside wash + Inside vacuum + Polish) </p>
-        <p>4. Monthly deal - R500 (Save R100)</p>
-        <p> (4x Packaged deal washes) </p>
+        <div class="service-header">
+          <h3>Car Wash</h3>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="service-content">
+          <div class="service-inner">
+            <h4>Single Services</h4>
+            <table class="price-table">
+              <tr>
+                <td>Option 1: Outside + Inside Wash</td>
+                <td>R150</td>
+                <td class="pensioner">R135</td>
+              </tr>
+              <tr>
+                <td>Option 2: Outside Wash + Dry</td>
+                <td>R100</td>
+                <td class="pensioner">R90</td>
+              </tr>
+              <tr>
+                <td>Option 3: Inside Vacuum + Polish</td>
+                <td>R80</td>
+                <td class="pensioner">R72</td>
+              </tr>
+              <tr>
+                <td>Option 4: Engine Bay</td>
+                <td>R50</td>
+                <td class="pensioner">R45</td>
+              </tr>
+            </table>
+
+            <h4 style="margin-top: 1.5rem;">Monthly Packages</h4>
+            <table class="price-table">
+              <tr>
+                <td>Option 1: Outside + Inside (2x per month)</td>
+                <td>R250</td>
+                <td class="pensioner">R225</td>
+              </tr>
+              <tr>
+                <td>Option 1: Outside + Inside (4x per month)</td>
+                <td>R500</td>
+                <td class="pensioner">R450</td>
+              </tr>
+              <tr>
+                <td>Option 2: Outside Wash + Dry (2x per month)</td>
+                <td>R180</td>
+                <td class="pensioner">R162</td>
+              </tr>
+              <tr>
+                <td>Option 2: Outside Wash + Dry (4x per month)</td>
+                <td>R360</td>
+                <td class="pensioner">R324</td>
+              </tr>
+            </table>
+            <p style="margin-top: 1rem; font-size: 0.9em; color: #666;"><strong>Pensioner Discount:</strong> 10% off all car wash services</p>
+          </div>
+        </div>
       </div>
       <br>
 
       <div class="service">
-        <h3>Dustbin Packages</h3>
-        <p>1. Standbard bin clean - R30 </p>
-        <p>2. Monthly washes - R100 (Save R20)</p>
-        <p>(Every Tuesday after Municipal Pickup and delivered to your door)</p>
+        <div class="service-header">
+          <h3>Dustbin Washing</h3>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="service-content">
+          <div class="service-inner">
+            <h4>Single Service</h4>
+            <table class="price-table">
+              <tr>
+                <td>Option 1: 1x Wash</td>
+                <td>R30</td>
+              </tr>
+            </table>
+
+            <h4 style="margin-top: 1.5rem;">Monthly Package</h4>
+            <table class="price-table">
+              <tr>
+                <td>Option 1: 4x Washes</td>
+                <td>R100</td>
+              </tr>
+            </table>
+            <p style="margin-top: 1rem; font-size: 0.9em; color: #666;">Every Tuesday after Municipal Pickup and delivered to your door</p>
+          </div>
+        </div>
       </div>
 
+      <br>
       <div class="service">
-        <h3>Monthly Package</h3>
-        <p>Option 4 (Car Wash Package) + Option 2 (Dustbin Package) - R450</p>
+        <div class="service-header">
+          <h3>Lawn Mowing</h3>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="service-content">
+          <div class="service-inner">
+            <table class="price-table">
+              <tr>
+                <td>Option 1: 1x Cut</td>
+                <td>R100</td>
+                <td class="pensioner">R90</td>
+              </tr>
+            </table>
+            <p style="margin-top: 1rem; font-size: 0.9em; color: #666;"><strong>Pensioner Discount:</strong> 10% off</p>
+          </div>
+        </div>
       </div>
-      <!-- <div class="service">
-        <h3>Pressure Washing</h3>
-        <p>1. Standard cleaning (Pavement, tiles refreshing) R30/square metre</p>
-        <p>2. Heavy duty cleaning (Moss etc.) R40/square metre</p>
-        <br>
-        <p>Please note! This pricing is a guideline only for floor areas less than 40 square metres. Any areas larger than that will increase the pricing.</p>
+
+      <br>
+      <div class="service">
+        <div class="service-header">
+          <h3>Roof Painting</h3>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="service-content">
+          <div class="service-inner">
+            <table class="price-table">
+              <tr>
+                <td>Option 1: Per House</td>
+                <td>R2000</td>
+                <td class="pensioner">R1800</td>
+              </tr>
+            </table>
+            <p style="margin-top: 1rem; font-size: 0.9em; color: #666;"><strong>Pensioner Discount:</strong> 10% off</p>
+          </div>
+        </div>
       </div>
-      <br> -->
+    </div>
 
-      <!-- <div class="service">
-        <h3>Roofing services</h3>
-        <p>1. Roofing (Removing moss/growths) R60/square metre</p>
-        <p>2. Roofing (Full roof spray) R1000</p>
-        <p>3. Gutter cleaning (Clear gutters of any debris that might block them) R200</p>
-      </div>
-      <br> -->
-
-      <!-- <div class="service">
-        <h3>Window washing</h3>
-        <p>1. Inside OR Outside wash (Not both) R100</p>
-        <p>2. Inside AND Outside wash (Both) R180</p>
-      </div> -->
-    </section> 
-
-    <hr>
-
-    <section id="hours" class="section">
+    <!-- Hours Page -->
+    <div id="hours" class="page">
       <h2>Operating Hours</h2>
 
       <div class="hours">
-        <p>Monday-Friday: 8am - 12am, 2pm - 4pm</p>
+        <p>Monday-Friday: 8am - 4pm</p>
         <p>Saturday-Sunday: Closed</p>
       </div>
+    </div>
 
-    </section>
-
-    <hr>
-
-    <section id="contact" class="section">
+    <!-- Contact Page -->
+    <div id="contact" class="page">
       <h2>Request a Quote</h2>
 
       <form id="quoteForm">
@@ -111,8 +220,7 @@
 
         <button type="submit">Send Request</button>
       </form>
-
-    </section>
+    </div>
   </main>
 
   <footer>
@@ -120,5 +228,6 @@
   </footer>
 
   <script src="script.js"></script>
+  
 </body>
 </html>

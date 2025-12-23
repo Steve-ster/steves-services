@@ -1,19 +1,16 @@
 body {
   font-family: Arial, sans-serif;
   margin: 0;
-  background-color: #f4f4f4;
-  color: #333;
-}
+  background-color: #f2f6fb; /* light bluish neutral */
+  color: #0b0b0b; /* dark text */
+} 
 
 header {
-  background-color: #222;
+  background-color: #000; /* black */
   color: white;
   padding: 1rem;
   text-align: center;
-  /* position: fixed;
-  width: 100%; 
-  z-index: 1000;  */
-}
+} 
 
 nav ul {
   list-style: none;
@@ -27,28 +24,148 @@ nav a {
   color: white;
   text-decoration: none;
   font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s;
 }
 
 nav a:hover {
-  text-decoration: underline;
+  background-color: #0b3b5f; /* dark blue */
+} 
+
+nav a.active {
+  background-color: #c62828; /* red accent */
+} 
+
+main {
+  min-height: 70vh;
 }
 
-.section {
+.page {
+  display: none;
   padding: 2rem;
   max-width: 800px;
   margin: auto;
+  animation: fadeIn 0.3s;
+}
+
+.page.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Collapsible service styles */
+.service {
+  margin-bottom: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.service-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 1rem;
+  background-color: #0b0b0b; /* black */
+  color: white;
+  transition: background-color 0.3s;
+} 
+
+.service-header:hover {
+  background-color: #0b3b5f; /* dark blue */
+} 
+
+.service-header h3 {
+  margin: 0;
+}
+
+.arrow {
+  font-size: 1.5rem;
+  transition: transform 0.3s;
+  user-select: none;
+}
+
+.arrow.open {
+  transform: rotate(180deg);
+}
+
+.service-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
+}
+
+.service-content.open {
+  max-height: 1000px;
+  transition: max-height 0.6s ease-in;
+}
+
+.service-inner {
+  padding: 1rem;
+  background-color: #eef6ff; /* very light blue */
+} 
+
+.service-inner h4 {
+  margin-top: 0;
+  color: #222;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 0.5rem;
+}
+
+.price-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.5rem;
+}
+
+.price-table tr {
+  border-bottom: 1px solid #d0d8e0; /* subtle bluish divider */
+} 
+
+.price-table tr:last-child {
+  border-bottom: none;
+}
+
+.price-table td {
+  padding: 0.75rem 0.5rem;
+}
+
+.price-table td:first-child {
+  text-align: left;
+  font-weight: 500;
+}
+
+.price-table td:nth-child(2),
+.price-table td:nth-child(3) {
+  text-align: right;
+  font-weight: bold;
+  width: 80px;
+}
+
+.price-table td.pensioner {
+  color: #0b3b5f; /* dark-blue accent for pensioner price */
+} 
+
+.price-table td.pensioner::before {
+  content: "👴 ";
+  font-size: 0.9em;
 }
 
 .gallery {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 images per row */
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
 }
 
-
 .gallery img {
-  width: 100%;
-  height: auto;
+  width: 400px;
+  height: 400px;
   border-radius: 8px;
 }
 
@@ -65,7 +182,7 @@ input, textarea {
 }
 
 button {
-  background-color: #222;
+  background-color: #c62828; /* red button */
   color: white;
   padding: 0.75rem;
   border: none;
@@ -74,12 +191,74 @@ button {
 }
 
 button:hover {
-  background-color: #444;
-}
+  background-color: #9a1e1e; /* darker red on hover */
+} 
 
 footer {
   text-align: center;
   padding: 1rem;
-  background-color: #222;
+  background-color: #000; /* black */
   color: white;
+  margin-top: 2rem;
+} 
+
+.service-gallery {
+  text-align: center;
+}
+
+/* Gallery responsive grid */
+.gallery-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.gallery-row div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.image {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Mobile: stack images into single column */
+@media (max-width: 600px) {
+  .gallery-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.hours {
+  background-color: #eef6ff; /* match service inner */
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+.image {
+  width: 400px;
+  height: 400px;
+  box-shadow: 3px 3px 10px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+} 
+
+@media (max-width: 600px) {
+  .gallery-row {
+    grid-template-columns: 1fr; /* stack vertically */
+  }
+}
+
+.gallery-row {
+  display: flex;
+  justify-content: center;   /* centers the row */
+  gap: 30px;                 /* small gap between images */
+}
+
+.gallery-row div {
+  text-align: center;
 }
