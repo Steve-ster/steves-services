@@ -46,7 +46,7 @@ main {
   padding: 2rem;
   max-width: 800px;
   margin: auto;
-  animation: fadeIn 0.3s;
+  animation: fadeIn 0.5s;
 }
 
 .page.active {
@@ -152,10 +152,10 @@ main {
   color: #0b3b5f; /* dark-blue accent for pensioner price */
 } 
 
-.price-table td.pensioner::before {
+/* .price-table td.pensioner::before {
   content: "👴 ";
   font-size: 0.9em;
-}
+} */
 
 .gallery {
   display: grid;
