@@ -76,6 +76,62 @@ document.addEventListener("DOMContentLoaded", () => {
     // Show initial page based on URL hash
     const initialHash = window.location.hash.substring(1) || 'home';
     showPage(initialHash);
+
+    // Carousel functionality
+    const carouselContainer = document.querySelector('.carousel-container');
+    const slides = document.querySelectorAll('.carousel-slide');
+    const prevBtn = document.querySelector('.carousel-btn.prev');
+    const nextBtn = document.querySelector('.carousel-btn.next');
+    const indicatorsContainer = document.querySelector('.carousel-indicators');
+    
+    if (carouselContainer && slides.length && prevBtn && nextBtn && indicatorsContainer) {
+      let currentIndex = 0;
+      
+      // Create indicators
+      slides.forEach((_, index) => {
+        const indicator = document.createElement('button');
+        indicator.classList.add('carousel-indicator');
+        if (index === 0) indicator.classList.add('active');
+        indicator.addEventListener('click', () => showSlide(index));
+        indicatorsContainer.appendChild(indicator);
+      });
+      
+      const indicators = document.querySelectorAll('.carousel-indicator');
+      
+      function showSlide(index) {
+        const offset = -index * 100;
+        carouselContainer.style.transform = `translateX(${offset}%)`;
+        
+        // Update indicators
+        indicators.forEach((indicator, i) => {
+          indicator.classList.toggle('active', i === index);
+        });
+        
+        currentIndex = index;
+      }
+      
+      function nextSlide() {
+        currentIndex = (currentIndex + 1) % slides.length;
+        showSlide(currentIndex);
+      }
+      
+      function prevSlide() {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        showSlide(currentIndex);
+      }
+      
+      nextBtn.addEventListener('click', nextSlide);
+      prevBtn.addEventListener('click', prevSlide);
+      
+      // Optional: Add keyboard navigation
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+          prevSlide();
+        } else if (e.key === 'ArrowRight') {
+          nextSlide();
+        }
+      });
+    }
   } catch (err) {
     console.error('Error initializing scripts:', err);
   }

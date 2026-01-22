@@ -206,59 +206,167 @@ footer {
   text-align: center;
 }
 
-/* Gallery responsive grid */
-.gallery-row {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-  align-items: start;
+/* Carousel styles - mobile first */
+.carousel {
+  position: relative;
+  max-width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  min-height: 500px; /* Ensure consistent height for centering */
 }
 
-.gallery-row div {
+.carousel-container {
+  display: flex;
+  transition: transform 0.3s ease;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  height: 100%;
+}
+
+.carousel-slide h4 {
+  margin: 0.5rem 0;
+  color: #333;
 }
 
 .image {
   width: 100%;
-  max-width: 100%;
+  max-width: 400px;
   height: auto;
   display: block;
-}
-
-/* Mobile: stack images into single column */
-@media (max-width: 600px) {
-  .gallery-row {
-    grid-template-columns: 1fr;
-  }
-}
-
-.hours {
-  background-color: #eef6ff; /* match service inner */
-  padding: 1rem;
-  border-radius: 4px;
-}
-
-.image {
-  width: 400px;
-  height: 400px;
   box-shadow: 3px 3px 10px 10px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
-} 
+  margin: 0 auto; /* Ensure horizontal centering */
+}
 
-@media (max-width: 600px) {
-  .gallery-row {
-    grid-template-columns: 1fr; /* stack vertically */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: background-color 0.3s;
+}
+
+.carousel-btn:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-btn.prev {
+  left: 10px;
+}
+
+.carousel-btn.next {
+  right: 10px;
+}
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+}
+
+.carousel-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.carousel-indicator.active {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+/* Mobile-first responsive styles */
+@media (max-width: 767px) {
+  header {
+    padding: 0.5rem;
+  }
+  
+  header h1 {
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+  }
+  
+  nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  nav a {
+    padding: 0.75rem;
+    display: block;
+    text-align: center;
+  }
+  
+  .page {
+    padding: 1rem;
+  }
+  
+  .service-header {
+    padding: 0.75rem;
+  }
+  
+  .service-inner {
+    padding: 0.75rem;
+  }
+  
+  .price-table td {
+    padding: 0.5rem 0.25rem;
+    font-size: 0.9rem;
+  }
+  
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+  
+  .carousel-indicator {
+    width: 8px;
+    height: 8px;
+  }
+
+/* Desktop styles */
+@media (min-width: 768px) {
+  .carousel {
+    min-height: 600px; /* Slightly taller on desktop */
+  }
+  
+  .image {
+    max-width: 500px;
+  }
+  
+  .carousel-btn {
+    width: 60px;
+    height: 60px;
+    font-size: 2rem;
   }
 }
-
-.gallery-row {
-  display: flex;
-  justify-content: center;   /* centers the row */
-  gap: 30px;                 /* small gap between images */
-}
-
-.gallery-row div {
-  text-align: center;
 }
